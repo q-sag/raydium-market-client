@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "c:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.842706198ffa606fb00cb498b5eba4ba2797ede1-audit.json",
+    "files": [
+        {
+            "date": 1731108831468,
+            "name": "c:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\raydium_cpmm-2024-11-08.log",
+            "hash": "027552a0822a71950ca928162c802f321af8c27fa09d52314dc0ef8010a302ae"
+        },
+        {
+            "date": 1731110408036,
+            "name": "c:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\raydium_cpmm-2024-11-09.log",
+            "hash": "ff5b1e48e93575349d879cbfe8fac12995749e61bd317d42431eafdb17f2be6b"
+        },
+        {
+            "date": 1731690475882,
+            "name": "c:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\raydium_cpmm-2024-11-15.log",
+            "hash": "73ed344446d9bb776adaae9b1b1e49e4f9bc1f04d807dfdbe7e953c09b8e731f"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.dd069530237509e14dd7871af09df11ac26dbc3e-audit.json",
+    "files": [
+        {
+            "date": 1730995732820,
+            "name": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\pump_fetchPrice-2024-11-07.log",
+            "hash": "de7b93ed415df9847a0fb22861280112902f3f2cede4c51f2df3d57c5aeece04"
+        }
+    ],
+    "hashType": "sha256"
+}

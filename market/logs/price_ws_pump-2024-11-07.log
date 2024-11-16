@@ -1,0 +1,35 @@
+[2024-11-07 16:08:52] [DEBUG] [price_ws.pump] Connected to PostgreSQL database successfully.
+[2024-11-07 16:08:52] [DEBUG] [price_ws.pump] BatchFetchVaultPrices service is up and running.
+[2024-11-07 16:08:52] [DEBUG] [price_ws.pump] Subscribed to pump_SUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 1 channel(s).
+[2024-11-07 16:08:52] [DEBUG] [price_ws.pump] Subscribed to pump_UNSUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 2 channel(s).
+[2024-11-07 16:10:55] [DEBUG] [price_ws.pump] Shutting down BatchFetchVaultPrices service...
+[2024-11-07 16:10:55] [DEBUG] [price_ws.pump] All account change listeners have been removed.
+[2024-11-07 16:10:55] [DEBUG] [price_ws.pump] Redis subscriber disconnected.
+[2024-11-07 16:10:55] [DEBUG] [price_ws.pump] Redis publisher disconnected.
+[2024-11-07 16:10:55] [DEBUG] [price_ws.pump] PostgreSQL connection closed.
+[2024-11-07 16:11:15] [DEBUG] [price_ws.pump] Connected to PostgreSQL database successfully.
+[2024-11-07 16:11:15] [DEBUG] [price_ws.pump] BatchFetchVaultPrices service is up and running.
+[2024-11-07 16:11:15] [DEBUG] [price_ws.pump] Subscribed to pump_SUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 1 channel(s).
+[2024-11-07 16:11:15] [DEBUG] [price_ws.pump] Subscribed to pump_UNSUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 2 channel(s).
+[2024-11-07 16:18:50] [DEBUG] [price_ws.pump] Shutting down BatchFetchVaultPrices service...
+[2024-11-07 16:18:50] [DEBUG] [price_ws.pump] All account change listeners have been removed.
+[2024-11-07 16:18:50] [DEBUG] [price_ws.pump] Redis subscriber disconnected.
+[2024-11-07 16:18:50] [DEBUG] [price_ws.pump] Redis publisher disconnected.
+[2024-11-07 16:19:04] [DEBUG] [price_ws.pump] Connected to PostgreSQL database successfully.
+[2024-11-07 16:19:04] [DEBUG] [price_ws.pump] BatchFetchVaultPrices service is up and running.
+[2024-11-07 16:19:04] [DEBUG] [price_ws.pump] Subscribed to pump_SUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 1 channel(s).
+[2024-11-07 16:19:04] [DEBUG] [price_ws.pump] Subscribed to pump_UNSUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 2 channel(s).
+[2024-11-07 16:21:02] [DEBUG] [price_ws.pump] Shutting down BatchFetchVaultPrices service...
+[2024-11-07 16:21:02] [DEBUG] [price_ws.pump] All account change listeners have been removed.
+[2024-11-07 16:21:02] [DEBUG] [price_ws.pump] Redis subscriber disconnected.
+[2024-11-07 16:21:02] [DEBUG] [price_ws.pump] Redis publisher disconnected.
+[2024-11-07 16:21:02] [DEBUG] [price_ws.pump] PostgreSQL connection closed.
+[2024-11-07 16:21:14] [DEBUG] [price_ws.pump] Connected to PostgreSQL database successfully.
+[2024-11-07 16:21:14] [DEBUG] [price_ws.pump] BatchFetchVaultPrices service is up and running.
+[2024-11-07 16:21:14] [DEBUG] [price_ws.pump] Subscribed to pump_SUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 1 channel(s).
+[2024-11-07 16:21:14] [DEBUG] [price_ws.pump] Subscribed to pump_UNSUBSCRIPTIONS_CHANNEL channel. Currently subscribed to 2 channel(s).
+[2024-11-07 16:42:39] [DEBUG] [price_ws.pump] Shutting down BatchFetchVaultPrices service...
+[2024-11-07 16:42:39] [DEBUG] [price_ws.pump] All account change listeners have been removed.
+[2024-11-07 16:42:39] [DEBUG] [price_ws.pump] Redis subscriber disconnected.
+[2024-11-07 16:42:39] [DEBUG] [price_ws.pump] Redis publisher disconnected.
+[2024-11-07 16:42:39] [DEBUG] [price_ws.pump] PostgreSQL connection closed.

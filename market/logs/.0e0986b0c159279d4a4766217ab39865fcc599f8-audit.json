@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.0e0986b0c159279d4a4766217ab39865fcc599f8-audit.json",
+    "files": [
+        {
+            "date": 1730995732090,
+            "name": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\raydium_clmm-2024-11-07.log",
+            "hash": "1230efc67fb4ce55a2791835dafe2f52c0b5b172ca1f607a9bc259733c982008"
+        }
+    ],
+    "hashType": "sha256"
+}

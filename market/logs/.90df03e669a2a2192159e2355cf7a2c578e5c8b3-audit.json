@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.90df03e669a2a2192159e2355cf7a2c578e5c8b3-audit.json",
+    "files": [
+        {
+            "date": 1730995732280,
+            "name": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\price_ws_AmmPool-2024-11-07.log",
+            "hash": "c18c282e1a166e431a4e77b8b4305a3cd0e3b8ffb469d3ade1669596c6b13dad"
+        }
+    ],
+    "hashType": "sha256"
+}

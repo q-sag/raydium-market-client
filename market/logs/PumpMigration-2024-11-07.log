@@ -1,0 +1,138 @@
+[2024-11-07 16:08:51] [DEBUG] [PumpMigration] Subscribed to transaction logs for account: 39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg with subscription ID: 0
+[2024-11-07 16:09:04] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:09:04] [DEBUG] [PumpMigration] New transaction detected: poYN6d5WfmB83P3YXvKfyjAwFMMXSM8mnFiSbgcUxeXM2bZfNndyqTP2zgHxvm4aC5mXbCzYEmMMcSHSRnjUi4Q
+[2024-11-07 16:09:05] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:09:05.122Z","token":"TmjyVm6S7WZ3H3AkaxCmrhAJXyDFBuJ5aE5Ph3wpump","status":"withdraw"}
+[2024-11-07 16:09:05] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:09:32] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:09:32] [DEBUG] [PumpMigration] New transaction detected: 4QLqn6p3Reo85qcEgjFCVMgAwLb8UznZGZ1SQoFZLmj5Hd6WVabvxA8zLqyCzC7WZNwLvDXSV1PY6axm7NpPCtrB
+[2024-11-07 16:09:32] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:09:32.625Z","token":"7KuFdcfzbc3LLoRHNRWfW1dhbPNzuCv41hyYbfSUpump","status":"add","poolId":"7ik9bE2zhKxtW9yo2jc3vckjD93WJc2UiM6hvrs8VwEd"}
+[2024-11-07 16:09:32] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:10:24] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:10:24] [DEBUG] [PumpMigration] New transaction detected: 12xK1zFQdpiu8pMvhTYDDg1z3VyGnFBEEDiTFGZX43s5cCpeJoizYbT27suEp8VSNGc4E7tTf2sXaR4UTT4kHaX
+[2024-11-07 16:10:24] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:10:24.690Z","token":"TmjyVm6S7WZ3H3AkaxCmrhAJXyDFBuJ5aE5Ph3wpump","status":"add","poolId":"FhxgABgVcyEv4NzHPdoVTDFQcyHcob8R59KesnW6X7Uv"}
+[2024-11-07 16:10:24] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:10:29] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:10:29] [DEBUG] [PumpMigration] New transaction detected: 37727W4hVEyqAP54e2isaqu2UdYC6YzZo4fG5qRS9jxZT7bzKogpm6Co87qEx9atMC1iRuw4K2Wkzrw4SYcw8N3F
+[2024-11-07 16:10:29] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:10:29.588Z","token":"CbrpwSvSxS6Wbjb4eYvPvrnjQS7TVF8MAnTikqpCpump","status":"withdraw"}
+[2024-11-07 16:10:29] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:10:55] [DEBUG] [PumpMigration] Shutting down gracefully...
+[2024-11-07 16:10:55] [DEBUG] [PumpMigration] Redis publisher connection closed.
+[2024-11-07 16:10:55] [DEBUG] [PumpMigration] Unsubscribed from Solana logs. Subscription ID: 0 removed.
+[2024-11-07 16:11:14] [DEBUG] [PumpMigration] Subscribed to transaction logs for account: 39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg with subscription ID: 0
+[2024-11-07 16:11:44] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:11:44] [DEBUG] [PumpMigration] New transaction detected: 2kPwifRJogU7jLDzbujMaDjV6e7vsPwgFASBsHQojuuypaz8wUaYQjB5hXkJb8Bw9nngigojpWLqyZEtNcPGHNjU
+[2024-11-07 16:11:45] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:11:45.287Z","token":"DnBJsxKnvg41ttFhuDoWY7yXhEaHF6pLdmbJJhKhpump","status":"withdraw"}
+[2024-11-07 16:11:45] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:12:00] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:12:00] [DEBUG] [PumpMigration] New transaction detected: 5VppTHpy1JkS1G4VU3M5egddmf6Be53EznDnZZSUWDf4nQyVonaxeBvPno9bPRyoGPob5fTBwYBBWPv2przjZhwe
+[2024-11-07 16:12:00] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:12:00.299Z","token":"CbrpwSvSxS6Wbjb4eYvPvrnjQS7TVF8MAnTikqpCpump","status":"add","poolId":"HwoqHeBUt8GT1jZsnE2rsZ7F5vQMYaSVJP5oifbN1n3E"}
+[2024-11-07 16:12:00] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:13:14] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:13:14] [DEBUG] [PumpMigration] New transaction detected: JfPMtQQGX7KJ4GxWRQweWtpgF8z8u5kGBmCanMpPS6BEEY1unXvYpioh5vAykUTdSZ9cUAgYCSe5ohRtHtes692
+[2024-11-07 16:13:14] [WARN] [PumpMigration] Transaction details not found for signature: JfPMtQQGX7KJ4GxWRQweWtpgF8z8u5kGBmCanMpPS6BEEY1unXvYpioh5vAykUTdSZ9cUAgYCSe5ohRtHtes692.
+[2024-11-07 16:14:53] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:14:53] [DEBUG] [PumpMigration] New transaction detected: 4Qg6u8f3mAxw6DkzmQqSxqyyuQBt6wgrzveDdm6zxqiWDqvE5d3RLnSC3QGhoE16zrtffZq8Vv8KJnqnua9Lv4g8
+[2024-11-07 16:14:53] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:14:53.951Z","token":"FWkew8LjXi9ikVzJR19z6VtwXCUknV5xTQ94f15Fpump","status":"withdraw"}
+[2024-11-07 16:14:53] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:16:14] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:16:14] [DEBUG] [PumpMigration] New transaction detected: 3YL2RcphgxAcwV7JVEjZzwzpEPUPWNh9wSqmBXm6qV6L82nDAwdcfr7xMaxsuLiUcR3JyuqFhRvGG5ts21LYWjKt
+[2024-11-07 16:16:15] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:16:15.095Z","token":"FWkew8LjXi9ikVzJR19z6VtwXCUknV5xTQ94f15Fpump","status":"add","poolId":"Es8qBxU284xTrNpWrtpgmsCzWCxvhUKHxLki61UoeC9"}
+[2024-11-07 16:16:15] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:18:16] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:18:16] [DEBUG] [PumpMigration] New transaction detected: 4Z6tTVqBLkfqS7UFUzpcm7DN6up8AvcpV1PoKx75LG4CbqGSECim4smfZPpZZk533nf4LtLaseYTFjCDqZ53gMLz
+[2024-11-07 16:18:16] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:18:16.979Z","token":"AEi8RUhZ98Fw8HCgDrjgPd2i1PtdwdjCi4wEKWKWpump","status":"withdraw"}
+[2024-11-07 16:18:16] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:18:49] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:18:49] [DEBUG] [PumpMigration] New transaction detected: 5y3pVSkxNieRauKvrCCCDCBbmAomzhkduhD6PrgCsRhhQocmcxM1buLN7eDxX7Dst6nK4ppdusvwB5XcU1WoSoAQ
+[2024-11-07 16:18:49] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:18:49.997Z","token":"EUMG2UtX6Z97kDnWJZTYFf7dS1j6qGZ1CVk9jKuSpump","status":"withdraw"}
+[2024-11-07 16:18:49] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:18:50] [DEBUG] [PumpMigration] Shutting down gracefully...
+[2024-11-07 16:18:50] [DEBUG] [PumpMigration] Redis publisher connection closed.
+[2024-11-07 16:18:50] [DEBUG] [PumpMigration] Unsubscribed from Solana logs. Subscription ID: 0 removed.
+[2024-11-07 16:19:03] [DEBUG] [PumpMigration] Subscribed to transaction logs for account: 39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg with subscription ID: 0
+[2024-11-07 16:19:36] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:19:36] [DEBUG] [PumpMigration] New transaction detected: 5Cebotr7ZQgyriWgpNJ6PT7P7C1TY6MDVMawjrdTJNQoGqFn1qh2qBcTzThahAuUWxRqrvYCMY2PSdxhabaCPi3M
+[2024-11-07 16:19:36] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:19:36.967Z","token":"AEi8RUhZ98Fw8HCgDrjgPd2i1PtdwdjCi4wEKWKWpump","status":"add","poolId":"AdBzrm5unCPmqdFLWaPQ76E6RN7Pf3d6fxxMNLPBWgW"}
+[2024-11-07 16:19:36] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:20:12] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:20:12] [DEBUG] [PumpMigration] New transaction detected: 2RAKUyuFuodYrGdKXnmdZyh8kJuGtecd3MtNBEanuVHWvQFAQ5fnjj439wUKMgRQNeXv2HBMH4RZGnuGqyinbw46
+[2024-11-07 16:20:12] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:20:12.483Z","token":"EUMG2UtX6Z97kDnWJZTYFf7dS1j6qGZ1CVk9jKuSpump","status":"add","poolId":"9GrL8kmZJVVgW1dNneugfk5xWcB5EoVGSZomPe98Nhxq"}
+[2024-11-07 16:20:12] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:20:36] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:20:36] [DEBUG] [PumpMigration] New transaction detected: 3jnhzibGgXM2zq998wHWJZZ42PgBmUtcsy7nX5syDYAzdnts7d4TaHSoDKk33xsB18LunT6UixxDhEkLHkx1t7hA
+[2024-11-07 16:20:37] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:20:37.053Z","token":"uZK4wCKx5FRuTDTP3PqmdPmjSkq8iNJcefMC9LCpump","status":"withdraw"}
+[2024-11-07 16:20:37] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:21:02] [DEBUG] [PumpMigration] Shutting down gracefully...
+[2024-11-07 16:21:02] [DEBUG] [PumpMigration] Redis publisher connection closed.
+[2024-11-07 16:21:02] [DEBUG] [PumpMigration] Unsubscribed from Solana logs. Subscription ID: 0 removed.
+[2024-11-07 16:21:14] [DEBUG] [PumpMigration] Subscribed to transaction logs for account: 39azUYFWPz3VHgKCf3VChUwbpURdCHRxjWVowf5jUJjg with subscription ID: 0
+[2024-11-07 16:21:23] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:21:23] [DEBUG] [PumpMigration] New transaction detected: 21YtfYEnaMmCcz8Eb6E6ADFVA87BsMedysgFGdYra8G6tFAJorBQ7sZiWSubUb6mav5Z9PkHtvWBYQhWbiwq4VRi
+[2024-11-07 16:21:23] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:21:23.660Z","token":"2xC9vC8pkrEcwdu4Nohd9Ln9YtEZhawDAFbWSptzpump","status":"withdraw"}
+[2024-11-07 16:21:23] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:21:55] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:21:55] [DEBUG] [PumpMigration] New transaction detected: sERSd4YHUPBW51ZqkbswMoZ4URsFZV3GL5ykXU6pMPf7gu2v69RjWwCgffr5sx4dawhY2gdpcyqDx5XSrp9cWkY
+[2024-11-07 16:21:55] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:21:55.791Z","token":"uZK4wCKx5FRuTDTP3PqmdPmjSkq8iNJcefMC9LCpump","status":"add","poolId":"2CRL9QFGQQpKVSh7BUwBypSh5xFfGASf8XrK1soZqM1v"}
+[2024-11-07 16:21:55] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:22:20] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:22:20] [DEBUG] [PumpMigration] New transaction detected: 2ij6iNktZg38X9kQ2XHKWsETSRGgn81EyA9v4ue2bxKXmG1A2cj7ioRGwxoF29Tg8WS2NhUyvg3hFXZKr8Z6wq6Y
+[2024-11-07 16:22:20] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:22:20.937Z","token":"9DVmMjdqUbxThiphHmJrvGvjiFGqarEGA8bdHZy8pump","status":"withdraw"}
+[2024-11-07 16:22:20] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:22:44] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:22:44] [DEBUG] [PumpMigration] New transaction detected: 4xSMDRQYzAScr18b3NRWjgQVAbnT5LZSqdWbRMKrbNLMPAor1hfSFZG7nxStnCgUs8u1nogQYNTVqjiAogvM7EUD
+[2024-11-07 16:22:44] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:22:44.671Z","token":"2xC9vC8pkrEcwdu4Nohd9Ln9YtEZhawDAFbWSptzpump","status":"add","poolId":"D4o13LXUVb95W4YbADAAYDCqzxyjzzwtK2Wi2XjjTWCk"}
+[2024-11-07 16:22:44] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:23:41] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:23:41] [DEBUG] [PumpMigration] New transaction detected: 3WWFfsAiYz5v98tYxp4G3G4mFAUqVRx52EeXfh3MKgA6XPeX9zrBTsvn4ysu8XbprVP1WzQ9MAxCN3UEP8b3GVCh
+[2024-11-07 16:23:42] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:23:42.010Z","token":"9DVmMjdqUbxThiphHmJrvGvjiFGqarEGA8bdHZy8pump","status":"add","poolId":"FQpCWBBe17ocrK9vg5nm7FXimcRKfgR3TsYT84iUe9ds"}
+[2024-11-07 16:23:42] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:24:47] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:24:47] [DEBUG] [PumpMigration] New transaction detected: 2se8W4pZNPAYMHW6Shgbkxetkfo3DfqnKjbmUGb8o6McfHjLAuSPmCobt7a1Zk9NvTVZ2MGTbVqvWuZJy4kjeUAe
+[2024-11-07 16:24:47] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:24:47.391Z","token":"HBbzkjx43ETJcsYRcABviodpE7H67PsVNDsSo8DZpump","status":"withdraw"}
+[2024-11-07 16:24:47] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:25:22] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:25:22] [DEBUG] [PumpMigration] New transaction detected: 3LNPd9gK6ibx8Mb1K38UPQJnYE4hnruMMMujzgYFsHKD7o8QukMwFvdnMaTTVvR1KS3xoAyMpXtLb9kPzM8CTa4
+[2024-11-07 16:25:22] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:25:22.530Z","token":"6ytFP3M8rNyWqZEMJbHPsi5dH7GFwHMaWzJotmrepump","status":"withdraw"}
+[2024-11-07 16:25:22] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:26:08] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:26:08] [DEBUG] [PumpMigration] New transaction detected: 5o3kSogKbN6Dygqp5SH2dtovhpGB3BQScqd6kx4achcEA5D5b8VY2kedwvFNhNegCn69ttbqYXePqmGM1d2AeBCg
+[2024-11-07 16:26:08] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:26:08.611Z","token":"HBbzkjx43ETJcsYRcABviodpE7H67PsVNDsSo8DZpump","status":"add","poolId":"FVm6PHoA8o9Gvyb3XMMpXpJr95wQx3UWWVUsYcGxqRqn"}
+[2024-11-07 16:26:08] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:26:43] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:26:43] [DEBUG] [PumpMigration] New transaction detected: EzpHanygUZFqxTrLxEvZs38usPaQLB6qmBEQphLHuPW4FJnUw8BzNGhTmKdFjUXycr79ZRy9JA7mhHbPnCmnwC9
+[2024-11-07 16:26:43] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:26:43.295Z","token":"6ytFP3M8rNyWqZEMJbHPsi5dH7GFwHMaWzJotmrepump","status":"add","poolId":"8e4vhv9m1kNTS2LYSSc2RRZ9PTxoPv93g5QbKSWU38XC"}
+[2024-11-07 16:26:43] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:28:55] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:28:55] [DEBUG] [PumpMigration] New transaction detected: 5QwqTDfwGayGLShEvsXjmV1N5t8LJ2Atkqb3i6ZsevDcFxpUbmGTm3EEpsduGsWQSXDZjhb5dwuNc726STfoe2Lh
+[2024-11-07 16:28:56] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:28:56.111Z","token":"6q1jD3f9huVYErVbGP8ZMA7whqhJGyoA4VKjrHxupump","status":"withdraw"}
+[2024-11-07 16:28:56] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:29:34] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:29:34] [DEBUG] [PumpMigration] New transaction detected: 3c2m6VDR8K7ckBY17oxHMriK4PjoFVsJMyCNKJxzigYb6QGfPBeZZSRQrJi66UgPuTMAHsKrX2uEunBJEuZE6kpz
+[2024-11-07 16:29:34] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:29:34.237Z","token":"1qQDtHkNrDLARD5bUT6nMHLQJHDat9JAUHsjtBMpump","status":"withdraw"}
+[2024-11-07 16:29:34] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:30:17] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:30:17] [DEBUG] [PumpMigration] New transaction detected: 3rC9kqcsTuLmLofgSDAzR4qEvYGLrxNG5SSeKZLYpodgxfR2YqzToPsxLMUatLZmBp48bAubqyyvyK1sBwr39NjL
+[2024-11-07 16:30:17] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:30:17.657Z","token":"6q1jD3f9huVYErVbGP8ZMA7whqhJGyoA4VKjrHxupump","status":"add","poolId":"CpoQ3RSZDC6xDcBsUhmMRodVdpoZFnm5CibMuLiVFCD"}
+[2024-11-07 16:30:17] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:30:55] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:30:55] [DEBUG] [PumpMigration] New transaction detected: 2WbvwJbUDA3KaSW9eSrS8PxET6P8j58gZW3qy4ejXAkQAx5znPzVeCvGGx5zNRaq3HQYfRrdL73PupLb8rQq4zVE
+[2024-11-07 16:30:55] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:30:55.663Z","token":"1qQDtHkNrDLARD5bUT6nMHLQJHDat9JAUHsjtBMpump","status":"add","poolId":"8geck5y5Fus7NqyNkuMMP5XHFjKK7AMxGCCUkLeaGUKz"}
+[2024-11-07 16:30:55] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:34:43] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:34:43] [DEBUG] [PumpMigration] New transaction detected: utieMQKnFpogSDAkY9oxgTKHVt86sKVfeVdbxUx7m4EDnB6UeCkmgKEcm8Q5KGD7Qi5W8YNEzgTSuziHqjUGWfA
+[2024-11-07 16:34:43] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:34:43.205Z","token":"EiSiwhiU6sy1seAk8FiNvfBhCE8GKgoFFaNKv14Qpump","status":"withdraw"}
+[2024-11-07 16:34:43] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:36:12] [DEBUG] [PumpMigration] Handling log with status: add
+[2024-11-07 16:36:12] [DEBUG] [PumpMigration] New transaction detected: 5G83VeFox86QFKX2sYmECvGevX4j4AyBXUowUWo7WvLJgZa7dw2EthjhGgNQFVhMy5D62gkhAy53ANLvuu7GY9BT
+[2024-11-07 16:36:12] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:36:12.452Z","token":"EiSiwhiU6sy1seAk8FiNvfBhCE8GKgoFFaNKv14Qpump","status":"add","poolId":"9cWg9QjttRKLS5tWkSifTm8Gjd5zcn1JAGTvK9JCPZ4f"}
+[2024-11-07 16:36:12] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:36:47] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:36:47] [DEBUG] [PumpMigration] New transaction detected: fy6oWwJRgoSFqJaw73ukMHAxhjzhoE3Lz1gdYoB1CJoW6yYDgaZo9jFVGpZfDscRtJmUXLNiqN3rDDpgs8QW9CM
+[2024-11-07 16:36:47] [WARN] [PumpMigration] Transaction details not found for signature: fy6oWwJRgoSFqJaw73ukMHAxhjzhoE3Lz1gdYoB1CJoW6yYDgaZo9jFVGpZfDscRtJmUXLNiqN3rDDpgs8QW9CM.
+[2024-11-07 16:41:46] [DEBUG] [PumpMigration] Handling log with status: withdraw
+[2024-11-07 16:41:46] [DEBUG] [PumpMigration] New transaction detected: MjMXftFk29qKXcbsnEJ5E25gRLcD6Dv4nfTuJYYWXyAr4z6Ci32tFWuNFQsDKzxt1KFTYykj9nvW8u2AqZmuto9
+[2024-11-07 16:41:47] [DEBUG] [PumpMigration] Emitting update: {"timestamp":"2024-11-07T16:41:47.176Z","token":"H3PAx4YpTai8LN5jYrpKcvUAm2ydyYSfo6nHEZz7pump","status":"withdraw"}
+[2024-11-07 16:41:47] [DEBUG] [PumpMigration] Published message to migrationAllUpdates. Subscribers: 1
+[2024-11-07 16:42:39] [DEBUG] [PumpMigration] Shutting down gracefully...
+[2024-11-07 16:42:39] [DEBUG] [PumpMigration] Redis publisher connection closed.
+[2024-11-07 16:42:40] [DEBUG] [PumpMigration] Unsubscribed from Solana logs. Subscription ID: 0 removed.

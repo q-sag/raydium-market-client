@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.8f6c66315143b6ce00b223d9439aebd5f9316501-audit.json",
+    "files": [
+        {
+            "date": 1730995731956,
+            "name": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\price_ws_pump-2024-11-07.log",
+            "hash": "54158a2e62ee5b0886691e2db23d3712a2eb49791d51f15760263b23397e228d"
+        }
+    ],
+    "hashType": "sha256"
+}

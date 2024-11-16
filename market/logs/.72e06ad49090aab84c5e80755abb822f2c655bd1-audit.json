@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\.72e06ad49090aab84c5e80755abb822f2c655bd1-audit.json",
+    "files": [
+        {
+            "date": 1730995733350,
+            "name": "C:\\Users\\falcon9\\Documents\\GitHub\\ats-engine\\src\\market\\logs\\tokenMetadata_log-2024-11-07.log",
+            "hash": "ad1281bd00411b75d5ecedbc03959fdb3e04672becc951428c4389663d983d4e"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,27 @@
+[2024-11-07 16:08:53] [INFO] [ApiMarket] API server is listening on port 3001
+[2024-11-07 16:08:53] [INFO] [ApiMarket] Subscribed to RaydiumPriceUpdates channel
+[2024-11-07 16:08:53] [INFO] [ApiMarket] Subscribed to PumpPriceUpdates channel
+[2024-11-07 16:08:53] [INFO] [ApiMarket] Subscribed to migrationAllUpdates channel
+[2024-11-07 16:09:12] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: F9pQ3Lx33yd29CnEjSTkjwukrHtTUNe2qZD1ZkD86f4X
+[2024-11-07 16:11:16] [INFO] [ApiMarket] API server is listening on port 3001
+[2024-11-07 16:11:16] [INFO] [ApiMarket] Subscribed to RaydiumPriceUpdates channel
+[2024-11-07 16:11:16] [INFO] [ApiMarket] Subscribed to PumpPriceUpdates channel
+[2024-11-07 16:11:16] [INFO] [ApiMarket] Subscribed to migrationAllUpdates channel
+[2024-11-07 16:11:18] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: BNLjnEcorCvxkRqz6AwtzsEGLWNDyXjWhsCiQuzSz1vs
+[2024-11-07 16:12:40] [INFO] [ApiMarket] WebSocket connection closed for /price/raydium with poolId: BNLjnEcorCvxkRqz6AwtzsEGLWNDyXjWhsCiQuzSz1vs
+[2024-11-07 16:13:07] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: 3B5vXBEYAmV8y13pgvzSi7eLDFS5tRd4pZZZPNuA4Ao2
+[2024-11-07 16:15:13] [INFO] [ApiMarket] WebSocket connection closed for /price/raydium with poolId: 3B5vXBEYAmV8y13pgvzSi7eLDFS5tRd4pZZZPNuA4Ao2
+[2024-11-07 16:15:20] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
+[2024-11-07 16:18:20] [INFO] [ApiMarket] WebSocket connection closed for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
+[2024-11-07 16:19:05] [INFO] [ApiMarket] API server is listening on port 3001
+[2024-11-07 16:19:05] [INFO] [ApiMarket] Subscribed to RaydiumPriceUpdates channel
+[2024-11-07 16:19:05] [INFO] [ApiMarket] Subscribed to PumpPriceUpdates channel
+[2024-11-07 16:19:05] [INFO] [ApiMarket] Subscribed to migrationAllUpdates channel
+[2024-11-07 16:19:22] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
+[2024-11-07 16:19:25] [INFO] [ApiMarket] WebSocket connection closed for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
+[2024-11-07 16:21:15] [INFO] [ApiMarket] API server is listening on port 3001
+[2024-11-07 16:21:15] [INFO] [ApiMarket] Subscribed to RaydiumPriceUpdates channel
+[2024-11-07 16:21:15] [INFO] [ApiMarket] Subscribed to PumpPriceUpdates channel
+[2024-11-07 16:21:15] [INFO] [ApiMarket] Subscribed to migrationAllUpdates channel
+[2024-11-07 16:21:50] [INFO] [ApiMarket] WebSocket connection established for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
+[2024-11-07 16:24:50] [INFO] [ApiMarket] WebSocket connection closed for /price/raydium with poolId: 7Qdm4NvoQ4LAjqmkXLZaBF5ceqs3iY4eYZzAjxYhwiQB
