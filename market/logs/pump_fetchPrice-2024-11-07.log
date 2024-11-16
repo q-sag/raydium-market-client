@@ -1,4 +1,0 @@
-[2024-11-07 16:10:55] [DEBUG] [pump_fetchPrice] Received SIGINT. Closing PostgreSQL pool.
-[2024-11-07 16:18:50] [DEBUG] [pump_fetchPrice] Received SIGINT. Closing PostgreSQL pool.
-[2024-11-07 16:21:02] [DEBUG] [pump_fetchPrice] Received SIGINT. Closing PostgreSQL pool.
-[2024-11-07 16:42:39] [DEBUG] [pump_fetchPrice] Received SIGINT. Closing PostgreSQL pool.
