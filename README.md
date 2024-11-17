@@ -1,3 +1,49 @@
+>> 
+
+Welcome, if you are reading this, you are probably interested in the Solana Market API.
+This Microservice is a work in progress, and it's not ready for production use. But you can use it for your own projects. Building on Solana is not easy if you're not Rust dev, so I'm trying to make it easier live-streaming data such as price, liquidity, volume, etc.
+
+We relying on RPC Node, so it's not real-time, but it's fast enough for most of the use cases.
+
+I beleive that this is a solid foundation for building on Solana, and I will continue to improve it.
+
+If you want to contribute, you can fork the project and improve it.I'll be glad to review and merge your changes.Remember, tools are made to make life easier, not harder. By crafting ourselves tools that unavailable on the market, we can obtain edge in the market. 
+
+
+If you have any questions or suggestions, please contact me on Telegram: @crypt0_0x
+
+
+Stack : NodeJS, Typescript, Solana, Raydium, Pump.fun
+
+P.S. This code was taken from one of the projects i wrote, and i decided to share it with closed community as i just don't have time to maintain it. It's been tested and working, but you may need to adjust it to your needs. There is still some work to be done related to token / pool data completeness, as there is more insights to be obtained from the blockchain.
+
+---
+
+## Quick Start
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Configure environment variables
+4. Run the service: `ts-node src/market/app.ts`
+
+## Development Setup
+1. Required: Redis, PostgreSQL 
+2. Environment Variables:
+   - RPC_URL
+   - RPC_WSS
+   - DATABASE_URL
+   - REDIS_HOST
+   - REDIS_PORT
+   - REDIS_PASSWORD
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+---
+
 # API and API Client Documentation
 
 ## Introduction
@@ -460,6 +506,35 @@ This documentation provides an overview of the API endpoints and the API client 
 
 ## Contact Information
 
-For any questions or issues related to the API or the API client, please contact the development team or refer to the project's repository for more information.
+For any questions or issues related to the API or the API client, please contact @shasiuk or refer to the project's repository for more information.
 
 ---
+
+## License
+
+### Non-Commercial Use License
+
+Copyright (c) 2024 q-sag / shasiuk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), subject to the following conditions:
+
+1. **Non-Commercial Use Only**: The Software may not be used, directly or indirectly, for commercial purposes. Commercial purposes include, but are not limited to:
+   - Using the Software for commercial advantage or monetary compensation
+   - Integrating the Software into a commercial product
+   - Using the Software in a commercial service
+   - Using the Software to generate revenue, directly or indirectly
+
+2. **Attribution**: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+3. **Modifications**: You may modify and distribute the Software for non-commercial purposes only, provided that:
+   - You clearly indicate that you have made modifications
+   - You include the original copyright notice
+   - You include this license text
+   - You distribute under the same license terms
+
+4. **No Warranty**: THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+5. **Termination**: Your rights under this license will terminate automatically if you fail to comply with any of its terms.
+
+For commercial use inquiries, please contact: @shasiuk on Telegram
+
