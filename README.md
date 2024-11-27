@@ -1,6 +1,11 @@
 >> 
 
 Welcome, if you are reading this, you are probably interested in the Solana Market API.
+
+Based on @solana/web3.js version 1.9 
+
+Thank you for tips : 3ARB6St5G3jBPdN9e9qozsXVdurSkGeQ5g1rXnAmdx9K
+
 This Microservice is a work in progress, and it's not ready for production use. But you can use it for your own projects. Building on Solana is not easy if you're not Rust dev, so I'm trying to make it easier live-streaming data such as price, liquidity, volume, etc.
 
 We relying on RPC Node, so it's not real-time, but it's fast enough for most of the use cases.
