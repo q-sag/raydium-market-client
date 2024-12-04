@@ -1,1 +1,6 @@
 market/logs/*
+node_modules
+.env
+dist
+logs/*
+market/dev/*

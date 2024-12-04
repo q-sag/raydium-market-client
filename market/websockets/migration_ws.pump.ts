@@ -28,17 +28,17 @@ async function handleLog(logs: any, status: 'withdraw' | 'add') {
       maxSupportedTransactionVersion: 0,
     });
 
-    if (transaction === null) {
-      logger.warn(`Transaction details not found for signature: ${signature}.`);
+    if (transaction === null || transaction.meta === null) {
+      logger.warn(`Transaction details not found or meta is null for signature: ${signature}.`);
       return;
     }
 
     // Extract token balances after the transaction
-    const postTokenBalances = transaction.meta.postTokenBalances;
+    const postTokenBalances = transaction.meta.postTokenBalances || [];
 
     // Filter balances where owner is in TARGET_OWNERS and decimals is 6
     const filteredBalances = postTokenBalances.filter(balance =>
-      TARGET_OWNERS.includes(balance.owner) &&
+      balance.owner && TARGET_OWNERS.includes(balance.owner) &&
       balance.uiTokenAmount.decimals === 6
     );
 
@@ -64,7 +64,8 @@ async function handleLog(logs: any, status: 'withdraw' | 'add') {
       // Extract the poolId from inner instructions
       let poolId: string | null = null;
 
-      transaction.meta.innerInstructions.forEach((innerInstructionGroup: any) => {
+      const innerInstructions = transaction.meta.innerInstructions || [];
+      innerInstructions.forEach((innerInstructionGroup: any) => {
         innerInstructionGroup.instructions.forEach((instruction: any) => {
           const parsed = instruction.parsed;
           if (parsed?.info?.owner === RAYDIUM_PROGRAM) {

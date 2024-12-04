@@ -18,7 +18,7 @@ import {
   redisPublisher,
   redisSubscriber,
 } from './utils/utils';
-import { WebSocket } from 'ws'; // Import WebSocket from 'ws' module
+import WebSocket from 'ws'; // Use default import for WebSocket
 import dotenv from 'dotenv';
 dotenv.config();
 

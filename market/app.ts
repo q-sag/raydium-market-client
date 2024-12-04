@@ -22,16 +22,16 @@ function runScript(scriptPath) {
 // Initialize the scripts
 console.log('Market Server initialized and scripts running...');
 console.log('Booting Market API script...');
-const apiScript = runScript('src/market/api.ts');
+const apiScript = runScript('market/api.ts');
 
 console.log('Booting Pump Migration Listener...');
-const migration = runScript('src/market/websockets/migration_ws.pump.ts');
+const migration = runScript('market/websockets/migration_ws.pump.ts');
 
 console.log('Booting Pump Price Websocket...');
-const pump_price = runScript('src/market/websockets/price_ws.pump.ts');
+const pump_price = runScript('market/websockets/price_ws.pump.ts');
 
 console.log('Booting Raydium Price Websocket...');
-const raydium_price = runScript('src/market/websockets/price_ws.AmmPool.ts');
+const raydium_price = runScript('market/websockets/price_ws.AmmPool.ts');
 
 // Example: Handle process exit
 process.on('exit', () => {

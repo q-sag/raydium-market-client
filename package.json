@@ -1,0 +1,25 @@
+{
+  "name": "raydium-market-client",
+  "version": "1.0.0",
+  "description": "toolset to explore markets and access data using API calls",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.3.0",
+    "@metaplex-foundation/umi": "^0.9.2",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.9.2",
+    "@solana/spl-token": "^0.4.9",
+    "@solana/spl-token-registry": "^0.2.7",
+    "@solana/web3.js": "^1.95.8",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-ws": "^5.0.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}

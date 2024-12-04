@@ -37,7 +37,7 @@ import { cpmmPoolDataForWS } from '../fetch/raydium_cpmm';
 import {
   clmmPoolDataForWS,
   deserializeClmmPoolInfo,
-} from '../dev/raydium_clmm copy 3';
+} from '../fetch/raydium_clmm';
 import { sqrtPriceX64ToPrice } from '../utils/utils';
 
 // Initialize Logger
@@ -464,8 +464,9 @@ async function startWatchingPool(poolId: string): Promise<void> {
       trackedPools.set(poolId, trackedPool);
     }
     logger.debug(`Started watching Pool ID: ${poolId}`);
-  } catch (error) {
-    logger.error(`Failed to watch Pool ID: ${poolId}. Error: ${(error as Error).message}`, error.stack);
+  } catch (error: unknown) {
+    const err = error as Error;
+    logger.error(`Failed to watch Pool ID: ${poolId}. Error: ${err.message}`, err.stack);
   }
 }
 

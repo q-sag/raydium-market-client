@@ -17,7 +17,7 @@ import {
   connection
 } from '../utils/utils';
 import { fetchCpmmPoolData } from './raydium_cpmm';
-import { fetchClmmPoolData } from '../dev/raydium_clmm copy 3';
+import { fetchClmmPoolData } from './raydium_clmm';
 import { ClmmPoolInfoSerializable, market_RaydiumPoolData, ReadableCpmmPoolInfo, PoolData } from '../utils/interfaces';
 import { AccountInfo } from '@solana/web3.js';
 dotenv.config();
@@ -351,7 +351,7 @@ export async function fetchRaydiumPoolData(poolId: string): Promise<PoolData> {
 
     //TODO : ADD parameter : Owner. If owner was not provided, 
     const accountInfo = await connection.getParsedAccountInfo(new PublicKey(poolId));
-    const accountOwner = accountInfo.value.owner.toBase58();
+    const accountOwner = accountInfo.value?.owner.toBase58();
 
     if (accountOwner === RAYDIUM_PROGRAM) {
       // Fetch account data
@@ -375,7 +375,7 @@ export async function fetchRaydiumPoolData(poolId: string): Promise<PoolData> {
         pool: poolData,
       };
     } else if (accountOwner === RAYDIUM_CLMM_PROGRAM_ID) {
-      const clmmData = await fetchClmmPoolData(poolId, accountInfo);
+      const clmmData = await fetchClmmPoolData(poolId);
       const poolData: ClmmPoolInfoSerializable = clmmData.pool;
       return {
         owner: RAYDIUM_CLMM_PROGRAM_ID,

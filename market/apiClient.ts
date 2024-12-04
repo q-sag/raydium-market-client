@@ -7,7 +7,7 @@ import Logger from './utils/logger';
 import {market_PumpMigrationEvent, market_PumpPriceUpdates, market_PumpPriceFetch, market_RaydiumPoolData,market_RaydiumPriceUpdate} from './utils/interfaces'
 
 import dotenv from 'dotenv';
-import { market_TokenMetadata } from '../utils/interfaces';
+import { market_TokenMetadata } from './utils/interfaces';
 dotenv.config();
 
 // Initialize Logger

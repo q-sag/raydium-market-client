@@ -179,11 +179,11 @@ async function getPricingData(tokenMint: string): Promise<{ tokenPrice: number; 
     };
 
     // Calculate and log the price
-    const tokenPrice = await calculatePrice(vaultData);
+    const price = calculatePrice(vaultData) || 0; // Provide default value
 
     // Return the required values
     return {
-      tokenPrice: tokenPrice,
+      tokenPrice: price,
       solVaultBalance: solBalance,
       tokenVaultBalance: bonding_curveTokens,
     //   symbol: symbol,

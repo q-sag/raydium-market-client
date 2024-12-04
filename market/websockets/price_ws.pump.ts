@@ -206,6 +206,9 @@ async function fetchVaultAddresses(
   tokenMint: string
 ): Promise<{ bonding_curve: string, associated_bonding_curve : string } | null> {
   try {
+    if (!process.env.PUMP_PROGRAM) {
+      throw new Error('PUMP_PROGRAM environment variable is not set');
+    }
     const pumpProgramAddress = new PublicKey(process.env.PUMP_PROGRAM);
     const mint = new PublicKey(tokenMint);
 
