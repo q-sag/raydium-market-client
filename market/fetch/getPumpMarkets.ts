@@ -271,8 +271,8 @@ async function fetchPumpAccounts() {
                     accountBatch.push(pumpAccount);
                     logger.debug(`Added account to batch. Current batch size: ${accountBatch.length}`);
                     
-                    // Process in batches of 10
-                    if (accountBatch.length >= 10) {
+                    // Process in batches of 5
+                    if (accountBatch.length >= 50) {
                         logger.info(`Batch size reached ${accountBatch.length}, triggering insert...`);
                         try {
                             await insertPumpAccounts(accountBatch);
