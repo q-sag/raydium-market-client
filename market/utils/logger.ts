@@ -5,6 +5,13 @@ import path from 'path';
 import winston from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
 
+const LOG_CONFIG = {
+  ROTATION_INTERVAL: '6h',    // Frequency of rotation
+  MAX_FILE_SIZE: '100m',      // Max file size 100MB
+  MAX_FILES: '7d',           // Keep logs for 7 days
+  DATE_PATTERN: 'YYYY-MM-DD-HH'  // Include hours in filename for 6h rotation
+} as const;
+
 class Logger {
   private logger: winston.Logger;
   private static errorLogFilePath: string;
@@ -52,8 +59,11 @@ class Logger {
         }),
         new DailyRotateFile({
           filename: path.join(logDir, `${safeScriptName}-%DATE%.log`),
-          datePattern: 'YYYY-MM-DD',
-          maxFiles: '14d', // Keep logs for 14 days
+          datePattern: LOG_CONFIG.DATE_PATTERN,
+          maxFiles: LOG_CONFIG.MAX_FILES,
+          maxSize: LOG_CONFIG.MAX_FILE_SIZE,
+          frequency: LOG_CONFIG.ROTATION_INTERVAL,
+          auditFile: path.join(logDir, '.audit.json'), // Tracks rotation history
         }),
       ],
       exitOnError: false, // Do not exit on handled exceptions
