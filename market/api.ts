@@ -20,6 +20,8 @@ import {
 } from './utils/utils';
 import WebSocket from 'ws'; // Use default import for WebSocket
 import dotenv from 'dotenv';
+import { Connection } from '@solana/web3.js';
+import { fetchMintByPool } from './fetch/pump_fetchMintByPool';
 dotenv.config();
 
 // Initialize Express and Express WebSocket
@@ -261,6 +263,54 @@ app.ws('/data/pump/migration', (ws: WebSocket, req) => {
   ws.on('error', (error) => {
     logger.error(`WebSocket error: ${error}`);
   });
+});
+
+// Endpoint: /get/MintByOwner
+app.get('/get/MintByOwner', async (req, res) => {
+  const owner = req.query.owner as string;
+
+  if (!owner) {
+    logger.error('Missing owner parameter');
+    res.status(400).json({ error: 'Missing owner parameter.' });
+    return;
+  }
+
+  try {
+    const RPC_URL = process.env.RPC_URL || 'https://api.mainnet-beta.solana.com';
+        
+    const connection = new Connection(RPC_URL, 'confirmed');
+    logger.info(`Attempting to fetch token accounts for owner: ${owner}`);
+
+    const tokenAccounts = await fetchMintByPool(connection, owner);
+    
+    // Safely stringify the response
+    const safeResponse = {
+      success: tokenAccounts.success,
+      tokenAccounts: tokenAccounts.tokenAccounts,
+      error: tokenAccounts.error
+    };
+    
+    logger.info(`Fetch result: ${JSON.stringify(safeResponse, null, 2)}`);
+
+    if (tokenAccounts.success) {
+      res.json(safeResponse);
+    } else {
+      logger.error(`Failed to fetch token accounts: ${tokenAccounts.error}`);
+      res.status(500).json({
+        success: false,
+        error: tokenAccounts.error || 'Failed to fetch token accounts'
+      });
+    }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    logger.error(`Error in /get/MintByOwner endpoint:`, error);
+    logger.error(`Stack trace:`, error instanceof Error ? error.stack : 'No stack trace available');
+    
+    res.status(500).json({ 
+      success: false, 
+      error: errorMessage
+    });
+  }
 });
 
 // Start the server

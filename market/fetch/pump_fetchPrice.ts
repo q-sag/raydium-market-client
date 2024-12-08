@@ -17,7 +17,7 @@ const logger = new Logger('pump_fetchPrice');
 const RPC_URL = process.env.RPC_URL || 'https://api.mainnet-beta.solana.com';
 
 // Function to fetch and log account data using getParsedAccountInfo
-async function fetchAndLogParsedAccountInfo(
+export async function fetchAndLogParsedAccountInfo(
   connection: Connection,
   accountPubKey: PublicKey,
   commitment: Commitment = 'confirmed'

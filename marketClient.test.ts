@@ -16,7 +16,7 @@ const logger = new Logger('MarketClientTest');
 
 // Hardcoded account addresses for testing
 const testPoolId = 'EP2ib6dYdEeqD8MfE2ezHCxX3kP3K2eLKkirfPm5eyMx';  // RAYDIUM POOL ID || WIF/SOL pool in this case
-const testMint = '2wqARmi6fbb3oiRcdcwiC19kQuqkLZpueQijLMpMpump';  // PUMP TOKEN MINT || Put any active token from pump.fun in this case
+const testMint = '4gaFmTcPiDzH6iGF57BbRi2ZXG7yLqUXh1hFHuZXpump';  // PUMP TOKEN MINT || Put any active token from pump.fun in this case
 const testTradeId = 'InternalTradeId123'; 
 
 // Initialize MarketClient

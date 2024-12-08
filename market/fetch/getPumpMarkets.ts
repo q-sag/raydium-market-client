@@ -10,6 +10,7 @@ import { pick } from 'stream-json/filters/Pick';
 import Logger from '../utils/logger';
 import { Pool } from 'pg';
 import { chunk } from 'lodash';  // for batch processing
+import { sleep } from '../utils/sleep';  // You'll need to create this utility
 
 dotenv.config();
 
@@ -76,7 +77,7 @@ interface PumpAccountRecord {
     timestamp: Date;
 }
 
-// Add after other imports
+// Move the pool creation outside the functions to make it global
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 });
@@ -171,156 +172,229 @@ async function insertPumpAccounts(accounts: PumpAccountRecord[]) {
     }
 }
 
-async function fetchPumpAccounts() {
-    await createPumpMarketsTable();
-    
-    const startTime = performance.now();
-    const rpcUrl = process.env.RPC_URL;
-    if (!rpcUrl) {
-        throw new Error('RPC_URL is not defined in .env file');
+// Add new TimingLogger class
+class TimingLogger {
+    private startTime: number;
+    private iterations: number = 0;
+    private totalTime: number = 0;
+    private logger: Logger;
+
+    constructor() {
+        this.startTime = performance.now();
+        this.logger = new Logger('timing-pump');
     }
 
+    logIteration(iterationTime: number) {
+        this.iterations++;
+        this.totalTime += iterationTime;
+        const avgTime = this.totalTime / this.iterations;
+        
+        this.logger.info(`Iteration ${this.iterations}:`);
+        this.logger.info(`- Time taken: ${iterationTime.toFixed(2)}ms`);
+        this.logger.info(`- Average time: ${avgTime.toFixed(2)}ms`);
+        this.logger.info(`- Total running time: ${(performance.now() - this.startTime).toFixed(2)}ms`);
+    }
+
+    reset() {
+        this.startTime = performance.now();
+        this.iterations = 0;
+        this.totalTime = 0;
+    }
+}
+
+// Modify the main function to run in a loop
+async function runPumpAccountsFetcher() {
+    const timingLogger = new TimingLogger();
+    const mainLogger = new Logger('getAccountsOwnedPump');
+    
     try {
-        // Prepare RPC request payload
-        const requestPayload = {
-            jsonrpc: '2.0',
-            id: 1,
-            method: 'getProgramAccounts',
-            params: [
-                PROGRAM_ID.toString(),
-                {
-                    encoding: 'base64',
-                }
-            ]
-        };
+        while (true) {
+            try {
+                const iterationStart = performance.now();
+                
+                mainLogger.info('Starting new fetch iteration...');
+                await fetchPumpAccounts();
+                
+                const iterationTime = performance.now() - iterationStart;
+                timingLogger.logIteration(iterationTime);
 
-        // Make the fetch request
-        const response = await fetch(rpcUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(requestPayload)
-        });
+                mainLogger.info('Waiting 5 minutes before next fetch...');
+                await sleep(5 * 60 * 1000);
+                
+            } catch (error) {
+                mainLogger.error('Error in fetch iteration:', error);
+                // Wait 1 minute before retrying on error
+                await sleep(60 * 1000);
+            }
+        }
+    } finally {
+        // Close the pool only when the entire process is shutting down
+        await pool.end();
+    }
+}
 
-        if (!response.body) {
-            throw new Error('No response body');
+// Modify the fetchPumpAccounts function to handle connection management
+async function fetchPumpAccounts() {
+    try {
+        await createPumpMarketsTable();
+        
+        const startTime = performance.now();
+        const rpcUrl = process.env.RPC_URL;
+        if (!rpcUrl) {
+            throw new Error('RPC_URL is not defined in .env file');
         }
 
-        logger.debug('response.body : ', response.body);
-        // Set up the streaming pipeline to specifically pick the 'result' field
-        const pipeline = chain([
-            response.body,
-            parser(),
-            pick({ filter: 'result' }),
-            streamArray()
-        ]);
-
-        let accountCount = 0;
-        
-        let accountBatch: PumpAccountRecord[] = [];
-        
-        // Update the data handler since we're now directly streaming the result array
-        pipeline.on('data', async ({ value }) => {
-            try {
-                accountCount++;
-                const accountStart = performance.now();
-                
-                // Convert lamports to SOL
-                const balanceInSol = value.account.lamports / 1e9;
-                
-                // Decode base64 data
-                const data = Buffer.from(value.account.data[0], 'base64');
-                const rawAccountData = data.slice(8);
-                
-                const layout = struct([
-                    u64('virtualTokenReserves'),
-                    u64('virtualSolReserves'),
-                    u64('realTokenReserves'),
-                    u64('realSolReserves'),
-                    u64('tokenTotalSupply'),
-                    bool('complete'),
-                ]);
-
-                const accountData = layout.decode(rawAccountData);
-
-                // Format data for PostgreSQL
-                const pumpAccount: PumpAccountRecord = {
-                    pubkey: value.pubkey,
-                    balance_sol: balanceInSol,
-                    virtual_token_reserves: accountData.virtualTokenReserves.toString(),
-                    virtual_sol_reserves: accountData.virtualSolReserves.toString(),
-                    real_token_reserves: accountData.realTokenReserves.toString(),
-                    real_sol_reserves: accountData.realSolReserves.toString(),
-                    token_total_supply: accountData.tokenTotalSupply.toString(),
-                    is_complete: accountData.complete,
-                    owner: value.account.owner,
-                    rent_epoch: value.account.rentEpoch,
-                    space: value.account.space,
-                    executable: value.account.executable,
-                    timestamp: new Date(),
-                };
-
-                // // Log the formatted data
-                // logger.info('Formatted Account Data:', pumpAccount);
-                // logger.info('------------------------');
-
-                // // Add debug logging for balance filtering
-                // logger.debug(`Account ${pumpAccount.pubkey} has balance: ${pumpAccount.balance_sol} SOL`);
-                
-                // After creating pumpAccount
-                if (pumpAccount.balance_sol >= 10) {
-                    accountBatch.push(pumpAccount);
-                    logger.debug(`Added account to batch. Current batch size: ${accountBatch.length}`);
-                    
-                    // Process in batches of 5
-                    if (accountBatch.length >= 50) {
-                        logger.info(`Batch size reached ${accountBatch.length}, triggering insert...`);
-                        try {
-                            await insertPumpAccounts(accountBatch);
-                            logger.info(`Successfully processed batch of ${accountBatch.length} accounts`);
-                            accountBatch = [];
-                        } catch (error) {
-                            logger.error('Failed to process batch:', error);
-                        }
+        try {
+            // Prepare RPC request payload
+            const requestPayload = {
+                jsonrpc: '2.0',
+                id: 1,
+                method: 'getProgramAccounts',
+                params: [
+                    PROGRAM_ID.toString(),
+                    {
+                        encoding: 'base64',
                     }
-                } else {
-                    logger.debug(`Skipping account due to low balance: ${pumpAccount.balance_sol} SOL`);
-                }
+                ]
+            };
 
-                logger.debug(`Account processing time: ${(performance.now() - accountStart).toFixed(2)}ms`);
-            } catch (e) {
-                logger.error(`Error parsing account:`, e);
+            // Make the fetch request
+            const response = await fetch(rpcUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(requestPayload)
+            });
+
+            if (!response.body) {
+                throw new Error('No response body');
             }
-        });
 
-        // Handle pipeline completion
-        await new Promise((resolve, reject) => {
-            pipeline.on('end', async () => {
+            logger.debug('response.body : ', response.body);
+            // Set up the streaming pipeline to specifically pick the 'result' field
+            const pipeline = chain([
+                response.body,
+                parser(),
+                pick({ filter: 'result' }),
+                streamArray()
+            ]);
+
+            let accountCount = 0;
+            
+            let accountBatch: PumpAccountRecord[] = [];
+            
+            // Modify the data handler section
+            pipeline.on('data', async ({ value }) => {
                 try {
-                    // Process any remaining accounts
-                    if (accountBatch.length > 0) {
-                        await insertPumpAccounts(accountBatch);
-                        logger.info(`Processed final batch of ${accountBatch.length} accounts`);
-                    }
+                    accountCount++;
+                    const accountStart = performance.now();
                     
-                    logger.info(`Total accounts processed: ${accountCount}`);
-                    logger.info(`Total execution time: ${(performance.now() - startTime).toFixed(2)}ms`);
-                    resolve(null);
-                } catch (error) {
-                    reject(error);
+                    // Convert lamports to SOL
+                    const balanceInSol = value.account.lamports / 1e9;
+                    
+                    const data = Buffer.from(value.account.data[0], 'base64');
+                    const rawAccountData = data.slice(8);  // Skip discriminator
+                    
+                    const layout = struct([
+                        u64('virtualTokenReserves'),
+                        u64('virtualSolReserves'),
+                        u64('realTokenReserves'),
+                        u64('realSolReserves'),
+                        u64('tokenTotalSupply'),
+                        bool('complete'),
+                    ]);
+
+                    const accountData = layout.decode(rawAccountData);
+                    
+                    // Format data for PostgreSQL
+                    const pumpAccount: PumpAccountRecord = {
+                        pubkey: value.pubkey,
+                        balance_sol: balanceInSol,
+                        virtual_token_reserves: accountData.virtualTokenReserves.toString(),
+                        virtual_sol_reserves: accountData.virtualSolReserves.toString(),
+                        real_token_reserves: accountData.realTokenReserves.toString(),
+                        real_sol_reserves: accountData.realSolReserves.toString(),
+                        token_total_supply: accountData.tokenTotalSupply.toString(),
+                        is_complete: accountData.complete,
+                        owner: value.account.owner,
+                        rent_epoch: value.account.rentEpoch,
+                        space: value.account.space,
+                        executable: value.account.executable,
+                        timestamp: new Date(),
+                    };
+
+                    if (pumpAccount.balance_sol >= 10) {
+                        accountBatch.push(pumpAccount);
+                        logger.debug(`Added account to batch. Current batch size: ${accountBatch.length}`);
+                        
+                        if (accountBatch.length >= 50) {
+                            logger.info(`Batch size reached ${accountBatch.length}, triggering insert...`);
+                            try {
+                                await insertPumpAccounts(accountBatch);
+                                logger.info(`Successfully processed batch of ${accountBatch.length} accounts`);
+                                accountBatch = [];
+                            } catch (error) {
+                                logger.error('Failed to process batch:', error);
+                            }
+                        }
+                    } else {
+                        logger.debug(`Skipping account due to low balance: ${pumpAccount.balance_sol} SOL`);
+                    }
+
+                    logger.debug(`Account processing time: ${(performance.now() - accountStart).toFixed(2)}ms`);
+                    
+                } catch (e) {
+                    logger.error(`Error processing account ${value?.pubkey || 'unknown'}:`, e);
                 }
             });
-            pipeline.on('error', reject);
-        });
+
+            // Handle pipeline completion
+            await new Promise((resolve, reject) => {
+                pipeline.on('end', async () => {
+                    try {
+                        // Process any remaining accounts
+                        if (accountBatch.length > 0) {
+                            await insertPumpAccounts(accountBatch);
+                            logger.info(`Processed final batch of ${accountBatch.length} accounts`);
+                        }
+                        
+                        logger.info(`Total accounts processed: ${accountCount}`);
+                        logger.info(`Total execution time: ${(performance.now() - startTime).toFixed(2)}ms`);
+                        resolve(null);
+                    } catch (error) {
+                        reject(error);
+                    }
+                });
+                pipeline.on('error', reject);
+            });
+
+        } catch (error) {
+            logger.error('Error fetching accounts:', error);
+            throw error; // Propagate the error to be handled by the caller
+        }
 
     } catch (error) {
         logger.error('Error fetching accounts:', error);
+        throw error; // Propagate the error to be handled by the caller
     }
-
-    // Add cleanup
-    await pool.end();
 }
 
-// Run the script
-fetchPumpAccounts()
-    .then(() => logger.info('Done'))
-    .catch(err => logger.error(err));
+// Update the script execution to handle process termination
+process.on('SIGTERM', async () => {
+    logger.info('Received SIGTERM signal. Closing database pool...');
+    await pool.end();
+    process.exit(0);
+});
+
+process.on('SIGINT', async () => {
+    logger.info('Received SIGINT signal. Closing database pool...');
+    await pool.end();
+    process.exit(0);
+});
+
+// Update the script execution
+runPumpAccountsFetcher()
+    .catch(err => {
+        const logger = new Logger('getAccountsOwnedPump');
+        logger.error('Fatal error in main loop:', err);
+        process.exit(1);
+    });

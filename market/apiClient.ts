@@ -4,16 +4,17 @@ import axios from 'axios';
 import WebSocket from 'ws';
 import EventEmitter from 'events';
 import Logger from './utils/logger';
-import {market_PumpMigrationEvent, market_PumpPriceUpdates, market_PumpPriceFetch, market_RaydiumPoolData,market_RaydiumPriceUpdate} from './utils/interfaces'
+import {market_PumpMigrationEvent, market_PumpPriceUpdates, market_PumpPriceFetch, market_RaydiumPoolData,market_RaydiumPriceUpdate, market_TokenAccountInfo} from './utils/interfaces'
 
 import dotenv from 'dotenv';
 import { market_TokenMetadata } from './utils/interfaces';
+
 dotenv.config();
 
 // Initialize Logger
 const logger = new Logger('MarketClient');
 
-const MARKET_API_PORT = process.env.MARKET_API_PORT;
+const MARKET_API_PORT = process.env.MARKET_API_PORT || '3001';
 const DEFAULT_API_BASE_URL = `http://localhost:${MARKET_API_PORT}`;
 
 
@@ -192,5 +193,25 @@ export class MarketClient {
     });
 
     return eventEmitter;
+  }
+
+  // Method to fetch token accounts by owner
+  public async getMintsByOwner(owner: string): Promise<{
+    success: boolean;
+    tokenAccounts?: market_TokenAccountInfo[];
+    error?: string;
+  }> {
+    try {
+      const response = await axios.get(`${this.apiBaseUrl}/get/MintByOwner`, {
+        params: { owner },
+      });
+      return response.data;
+    } catch (error) {
+      this.logger.error(`Error fetching token accounts for owner ${owner}:`, error);
+      return {
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error occurred'
+      };
+    }
   }
 }

@@ -392,3 +392,18 @@ export interface market_TokenMetadata {
   isMutable: boolean;
   rugCheck: boolean; // New field
 }
+
+// Interface for token account information
+export interface market_TokenAccountInfo {
+  accountAddress: string;
+  mint: string;
+  owner: string;
+  amount: string;
+  delegateOption: number;
+  delegate: string | null;
+  state: number;
+  isNative: string;
+  delegatedAmount: string;
+  closeAuthorityOption: number;
+  closeAuthority: string | null;
+}
