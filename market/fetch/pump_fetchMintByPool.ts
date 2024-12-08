@@ -37,7 +37,7 @@ export async function fetchMintByPool(
     const logger = new Logger('pump_fetchPoolData');
 
     try {
-        logger.info(`Attempting to fetch token accounts for: ${bc_pubkey}`);
+        // // logger.info(`Attempting to fetch token accounts for: ${bc_pubkey}`);
         
         // Validate public key format
         try {
@@ -52,7 +52,7 @@ export async function fetchMintByPool(
         }
 
         // Fetch token accounts owned by the pool
-        logger.info('Fetching token accounts from connection...');
+        // // logger.info('Fetching token accounts from connection...');
         const tokenAccounts = await connection.getTokenAccountsByOwner(
             new PublicKey(bc_pubkey),
             {
@@ -60,7 +60,7 @@ export async function fetchMintByPool(
             }
         );
 
-        logger.info(`Found ${tokenAccounts.value.length} token accounts`);
+        // logger.info(`Found ${tokenAccounts.value.length} token accounts`);
 
         // Process and parse token accounts
         const parsedTokenAccounts: market_TokenAccountInfo[] = tokenAccounts.value.map(tokenAccount => {
@@ -86,7 +86,7 @@ export async function fetchMintByPool(
             }
         });
 
-        logger.info(`Successfully parsed ${parsedTokenAccounts.length} token accounts`);
+        // logger.info(`Successfully parsed ${parsedTokenAccounts.length} token accounts`);
 
         return {
             success: true,
