@@ -117,6 +117,12 @@ async function recordMigrationEvent(
         ON CONFLICT (mint_address) DO UPDATE SET
           withdraw_signature = EXCLUDED.withdraw_signature,
           withdraw_timestamp = NOW(),
+          is_complete = (
+            CASE 
+              WHEN migration_transactions.add_signature IS NOT NULL THEN true
+              ELSE false
+            END
+          ),
           updated_at = NOW()
         RETURNING *;
       `
@@ -124,12 +130,17 @@ async function recordMigrationEvent(
         INSERT INTO migration_transactions 
           (mint_address, add_signature, add_timestamp, pool_id, is_complete)
         VALUES 
-          ($1, $2, NOW(), $3, true)
+          ($1, $2, NOW(), $3, false)
         ON CONFLICT (mint_address) DO UPDATE SET
           add_signature = EXCLUDED.add_signature,
           add_timestamp = NOW(),
           pool_id = EXCLUDED.pool_id,
-          is_complete = true,
+          is_complete = (
+            CASE 
+              WHEN migration_transactions.withdraw_signature IS NOT NULL THEN true
+              ELSE false
+            END
+          ),
           updated_at = NOW()
         RETURNING *;
       `;
@@ -145,7 +156,40 @@ async function recordMigrationEvent(
   }
 }
 
-// Handler function for incoming logs
+// Add this utility function for delay
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Add retry function for getting parsed transaction
+async function getTransactionWithRetry(signature: string, retries = 3): Promise<any> {
+  for (let i = 0; i < retries; i++) {
+    const transaction = await connection.getParsedTransaction(signature, {
+      commitment: 'confirmed',
+      maxSupportedTransactionVersion: 0,
+    });
+
+    if (transaction?.meta) {
+      return transaction;
+    }
+
+    // Add detailed logging for null transaction
+    if (!transaction) {
+      logger.warn(`Attempt ${i + 1}/${retries}: Transaction is null for signature ${signature}.Transaction: ${JSON.stringify(transaction)}`);
+    } else if (!transaction.meta) {
+      logger.warn(`Attempt ${i + 1}/${retries}: Transaction meta is null for signature ${signature}. Transaction: ${JSON.stringify(transaction)}`);
+    }
+
+    if (i < retries - 1) {
+      logger.debug(`Retry ${i + 1}/${retries} for transaction ${signature}`);
+      await delay(2000); // 2 seconds delay
+    }
+  }
+  
+  // Final detailed log before returning null
+  logger.warn(`All ${retries} attempts failed for signature ${signature}. Last attempt returned null transaction.`);
+  return null;
+}
+
+// Update the handleLog function
 async function handleLog(logs: any, status: 'withdraw' | 'add', provider: string) {
   try {
     const signature = logs.signature;
@@ -157,19 +201,15 @@ async function handleLog(logs: any, status: 'withdraw' | 'add', provider: string
     }
     seenTransactions.add(signature);
 
-    logger.debug(`Handling log with status: ${status}`);
-    logger.debug(`Raw logs: ${JSON.stringify(logs)}`);
+    // logger.debug(`Handling log with status: ${status}`);
+    // logger.debug(`Raw logs: ${JSON.stringify(logs)}`);
+    // logger.debug(`New transaction detected: ${signature}`);
 
-    logger.debug(`New transaction detected: ${signature}`);
+    // Replace the direct transaction fetch with retry logic
+    const transaction = await getTransactionWithRetry(signature);
 
-    // Fetch the transaction details
-    const transaction = await connection.getParsedTransaction(signature, {
-      commitment: 'confirmed',
-      maxSupportedTransactionVersion: 0,
-    });
-
-    if (transaction === null || transaction.meta === null) {
-      logger.warn(`This is probably JITO TIP transaction: ${signature}`);
+    if (!transaction) {
+      logger.warn(`Failed to fetch transaction after retries: ${signature}`);
       return;
     }
 
