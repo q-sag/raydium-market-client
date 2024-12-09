@@ -4,7 +4,8 @@
   "description": "toolset to explore markets and access data using API calls",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "ts-node market/app.ts"
   },
   "author": "",
   "license": "ISC",
@@ -30,5 +31,9 @@
     "stream-json": "^1.9.1",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
