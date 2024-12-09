@@ -239,16 +239,15 @@ async function handleLog(logs: any, status: 'withdraw' | 'add', provider: string
     let poolId: string | undefined;
     if (status === 'add') {
       const innerInstructions = transaction.meta.innerInstructions || [];
-      for (const innerGroup of innerInstructions) {
-        for (const instruction of innerGroup.instructions) {
-          if ('parsed' in instruction && 
-              instruction.parsed?.info?.owner === RAYDIUM_PROGRAM) {
-            poolId = instruction.parsed.info.account;
-            break;
+      innerInstructions.forEach((innerInstructionGroup: any) => {
+        innerInstructionGroup.instructions.forEach((instruction: any) => {
+          const parsed = instruction.parsed;
+          if (parsed?.info?.owner === RAYDIUM_PROGRAM) {
+            const account = parsed.info.account;
+            poolId = account;
           }
-        }
-        if (poolId) break;
-      }
+        });
+      });
     }
 
     await recordMigrationEvent(mint, signature, status, poolId);
