@@ -10,7 +10,7 @@ I beleive that this is a solid foundation for building on Solana, and I will con
 If you want to contribute, you can fork the project and improve it.I'll be glad to review and merge your changes.Remember, tools are made to make life easier, not harder. By crafting ourselves tools that unavailable on the market, we can obtain edge in the market. 
 
 
-If you have any questions or suggestions, please contact me on Telegram: @crypt0_0x
+If you have any questions or suggestions, please contact me on Telegram: @shasiuk
 
 
 Stack : NodeJS, Typescript, Solana, Raydium, Pump.fun
